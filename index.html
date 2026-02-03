@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium UPI Store</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- QRCode Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <div class="logo">ZenStore</div>
+                <div class="cart-icon">🛒 <span id="cart-count">0</span></div>
+            </nav>
+        </header>
+
+        <main>
+            <section class="product-card">
+                <div class="product-image">
+                    <div class="placeholder-img">⚡</div>
+                </div>
+                <div class="product-details">
+                    <h1>Flash Test Product</h1>
+                    <p class="description">
+                        Instant digital delivery. Perfect for testing UPI payments locally.
+                        Verified secure transaction.
+                    </p>
+                    <div class="price-tag">
+                        <span class="currency">₹</span>
+                        <span class="amount">5</span>
+                    </div>
+                    <button id="buy-btn" class="cta-button">
+                        Buy Now
+                        <span class="btn-shine"></span>
+                    </button>
+                    <p class="secure-text">🔒 Secured by UPI</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Payment Modal -->
+        <div id="payment-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Complete Payment</h2>
+                <p>Scan the QR code with any UPI App (GPay, PhonePe, Paytm)</p>
+
+                <div id="qrcode" class="qr-container"></div>
+
+                <div class="payment-info">
+                    <p>Amount: <strong>₹5.00</strong></p>
+                    <p class="timer">Expires in <span id="time">05:00</span></p>
+                </div>
+
+                <div class="status-box hidden" id="status-box">
+                    <div class="loader" id="loader"></div>
+                    <p id="status-text">Waiting for payment...</p>
+                </div>
+
+                <!-- Manual confirmation button -->
+                <button id="simulate-success" class="cta-button"
+                    style="margin-top: 20px; font-size: 1rem; padding: 12px;">✅ I have Paid</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
