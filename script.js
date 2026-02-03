@@ -5,7 +5,8 @@ const CONFIG = {
     // Production: https://extranet.smepay.in/api/wiz
     // Since user gave live-looking keys, we try Production first, or Staging if that fails. 
     // Usually 'extranet' is prod.
-    baseUrl: "https://extranet.smepay.in/api/wiz",
+    // Updated Base URL based on widget source
+    baseUrl: "https://wizard.smepay.in/api/wiz",
     clientId: "c23413f23F31AE51",
     clientSecret: "b7be3e66657cc708f396d838f8578a1aa876914f79230afb37834e9368dc3268",
     merchantName: "ZenStore Test"
@@ -41,7 +42,10 @@ async function initiatePayment() {
 }
 
 async function createOrder() {
-    const url = `${CONFIG.baseUrl}/external/create-order`;
+    // CORS Proxy to bypass browser restrictions on GitHub Pages
+    const corsProxy = "https://corsproxy.io/?";
+    const apiEndpoint = `${CONFIG.baseUrl}/external/create-order`;
+    const url = corsProxy + encodeURIComponent(apiEndpoint);
 
     // Unique order ID
     const orderRef = "ORDER_" + Date.now();
